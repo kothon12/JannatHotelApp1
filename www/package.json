@@ -1,0 +1,13 @@
+{
+  "name": "jannat-hotel-stock",
+  "version": "1.0.0",
+  "description": "Stock management app for Jannat Hotel",
+  "dependencies": {
+    "@capacitor/android": "^4.0.0",
+    "@capacitor/core": "^4.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^4.0.0",
+    "@capacitor/assets": "^2.0.4"
+  }
+}
