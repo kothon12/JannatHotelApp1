@@ -2,6 +2,9 @@
   "name": "jannat-hotel-stock",
   "version": "1.0.0",
   "description": "Stock management app for Jannat Hotel",
+  "scripts": {
+    "resources": "capacitor-assets generate --iconBackgroundColor '#ffffff' --splashBackgroundColor '#ffffff' --android"
+  },
   "dependencies": {
     "@capacitor/android": "^4.0.0",
     "@capacitor/core": "^4.0.0"
