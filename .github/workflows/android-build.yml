@@ -27,7 +27,7 @@ jobs:
         run: npm install
 
       - name: Generate App Resources (Icons & Splash)
-        run: npm run resources # <-- এখানে পরিবর্তন হয়েছে
+        run: npm run resources
 
       - name: Add Android platform
         run: npx cap add android
@@ -36,7 +36,7 @@ jobs:
         run: npx cap sync android
 
       - name: Build Debug APK
-        run: npx cap run android --no-open --target=android
+        run: cd android && ./gradlew assembleDebug
 
       - name: Find and Upload APK
         run: |
