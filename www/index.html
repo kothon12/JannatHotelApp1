@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>জান্নাত হোটেল - প্রিমিয়াম স্টক ম্যানেজমেন্ট</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+--primary-color: #00796b;
+--primary-dark: #005a4a;
+--accent-color: #ffc107;
+--bg-color: #f4f6f8;
+--text-color: #333;
+--card-bg: #ffffff;
+--border-color: #e0e0e0;
+--shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--bg-color);
+        margin: 0;
+        padding: 20px;
+        color: var(--text-color);
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: auto;
+    }
+    
+    .header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .header h1 {
+        color: var(--primary-dark);
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+
+    .card {
+        background: var(--card-bg);
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        padding: 25px 30px;
+        margin-bottom: 25px;
+    }
+
+    h2 {
+        text-align: center;
+        color: var(--primary-dark);
+        margin-top: 0;
+        margin-bottom: 25px;
+        font-weight: 600;
+    }
+
+    .form-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    input, select {
+        width: 100%;
+        padding: 14px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        font-size: 16px;
+        box-sizing: border-box;
+        transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    input:focus, select:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(0, 121, 107, 0.2);
+    }
+
+    button {
+        width: 100%;
+        padding: 15px;
+        background-image: linear-gradient(45deg, var(--primary-dark), var(--primary-color));
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transition: transform 0.2s, box-shadow 0.3s;
+    }
+
+    button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(0, 121, 107, 0.3);
+    }
+    
+    .table-wrapper {
+        overflow-x: auto;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        white-space: nowrap;
+    }
+
+    th, td {
+        padding: 16px;
+        text-align: left;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    th {
+        background-color: #e8f5e9;
+        color: var(--primary-dark);
+        font-weight: 600;
+    }
+
+    tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+    
+    .action-buttons button {
+        width: auto;
+        padding: 8px 15px;
+        margin-right: 8px;
+        font-size: 14px;
+        text-transform: none;
+        letter-spacing: 0;
+    }
+
+    .btn-out {
+        background-image: linear-gradient(45deg, #c62828, #f44336);
+    }
+    .btn-out:hover {
+         box-shadow: 0 6px 15px rgba(244, 67, 54, 0.3);
+    }
+
+    @media (min-width: 768px) {
+        .form-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .form-grid .full-width {
+            grid-column: 1 / -1;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <h1>জান্নাত হোটেল</h1>
+        <p>প্রিমিয়াম স্টক ম্যানেজমেন্ট সিস্টেম</p>
+    </header>
+
+    <div class="card">
+        <h2>নতুন স্টক আইটেম যোগ করুন</h2>
+        <form id="add-item-form">
+            <div class="form-grid">
+                <input type="text" id="item-name" placeholder="আইটেমের নাম" required>
+                <input type="number" id="item-price" placeholder="একক মূল্য (৳)" required min="0" step="any">
+                <select id="item-location" required>
+                    <option value="" disabled selected>অবস্থান নির্বাচন করুন</option>
+                    <option value="প্রধান স্টোর">প্রধান স্টোর</option>
+                    <option value="রান্নাঘর">রান্নাঘর</option>
+                    <option value="বার">বার</option>
+                    <option value="হাউসকিপিং স্টোর">হাউসকিপিং স্টোর</option>
+                </select>
+                <select id="item-category" required>
+                    <option value="" disabled selected>ক্যাটাগরি</option>
+                    <option value="খাদ্য ও পানীয়">খাদ্য ও পানীয়</option>
+                    <option value="হাউসকিপিং">হাউসকিপিং</option>
+                    <option value="অন্যান্য">অন্যান্য</option>
+                </select>
+                <input type="number" id="item-stock" placeholder="বর্তমান স্টক" required min="0">
+                <input type="text" id="item-unit" placeholder="একক (যেমন: কেজি, পিস, লিটার)" required>
+                <button type="submit" class="full-width">স্টকে যোগ করুন</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="card">
+        <h2>ইনভেন্টরি তালিকা</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>নাম</th>
+                        <th>অবস্থান</th>
+                        <th>ক্যাটাগরি</th>
+                        <th>একক মূল্য</th>
+                        <th>বর্তমান স্টক</th>
+                        <th>অ্যাকশন</th>
+                    </tr>
+                </thead>
+                <tbody id="inventory-list"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+<script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyAgXc6yhbA_ADwOqNNAA8AERgyuQsuU798",
+        authDomain: "jannat-434d5.firebaseapp.com",
+        projectId: "jannat-434d5",
+        storageBucket: "jannat-434d5.firebasestorage.app",
+        messagingSenderId: "439944147100",
+        appId: "1:439944147100:web:ecbd0169a9099f23747d59",
+        measurementId: "G-ZPK0F4M0KP"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    const inventoryCollection = db.collection('inventoryItems');
+
+    inventoryCollection.orderBy("location").onSnapshot(snapshot => {
+        const inventoryList = document.getElementById('inventory-list');
+        inventoryList.innerHTML = '';
+        snapshot.forEach(doc => {
+            const item = doc.data();
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${item.name}</td>
+                <td>${item.location}</td>
+                <td>${item.category}</td>
+                <td>৳${Number(item.price).toFixed(2)}</td>
+                <td>${item.currentStock} ${item.unit}</td>
+                <td class="action-buttons">
+                    <button onclick="updateStock('${doc.id}', true)">In</button>
+                    <button class="btn-out" onclick="updateStock('${doc.id}', false)">Out</button>
+                </td>
+            `;
+            inventoryList.appendChild(row);
+        });
+    }, error => {
+        console.error("Firestore Error:", error);
+        alert("ডেটাবেস থেকে ডেটা লোড করা যাচ্ছে না। আপনার Security Rules চেক করুন।");
+    });
+    
+    document.getElementById('add-item-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        inventoryCollection.add({
+            name: document.getElementById('item-name').value,
+            price: Number(document.getElementById('item-price').value),
+            location: document.getElementById('item-location').value,
+            category: document.getElementById('item-category').value,
+            unit: document.getElementById('item-unit').value,
+            currentStock: Number(document.getElementById('item-stock').value),
+            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
+        e.target.reset();
+    });
+
+    window.updateStock = (id, isStockIn) => {
+        const promptMessage = isStockIn ? "কত পরিমাণ যোগ করবেন?" : "কত পরিমাণ ইস্যু করবেন?";
+        const quantityInput = prompt(promptMessage);
+        
+        if (quantityInput === null) return;
+
+        const quantity = Number(quantityInput);
+        if (!isNaN(quantity) && quantity > 0) {
+            const itemRef = db.collection('inventoryItems').doc(id);
+            itemRef.get().then(doc => {
+                if (doc.exists) {
+                    const currentStock = doc.data().currentStock;
+                    if (!isStockIn && quantity > currentStock) {
+                        alert("দুঃখিত, স্টকে পর্যাপ্ত পরিমাণ পণ্য নেই।");
+                        return;
+                    }
+                    itemRef.update({
+                        currentStock: firebase.firestore.FieldValue.increment(isStockIn ? quantity : -quantity)
+                    });
+                }
+            });
+        } else if (quantityInput !== '') {
+            alert("দয়া করে সঠিক সংখ্যা ইনপুট দিন।");
+        }
+    };
+</script>
+</body>
+</html>
