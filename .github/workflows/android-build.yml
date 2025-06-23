@@ -26,11 +26,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Create necessary directory for assets
-        run: mkdir -p capacitor/assets/generate
-
-      - name: Generate App Icons and Splash Screens
-        run: npx @capacitor/assets:generate --iconBackgroundColor '#ffffff' --splashBackgroundColor '#ffffff' --android
+      - name: Generate App Resources (Icons & Splash)
+        run: npm run resources # <-- এখানে পরিবর্তন হয়েছে
 
       - name: Add Android platform
         run: npx cap add android
