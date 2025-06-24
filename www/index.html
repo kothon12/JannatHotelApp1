@@ -1,291 +1,394 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>জান্নাত হোটেল - প্রিমিয়াম স্টক ম্যানেজমেন্ট</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root {
---primary-color: #00796b;
---primary-dark: #005a4a;
---accent-color: #ffc107;
---bg-color: #f4f6f8;
---text-color: #333;
---card-bg: #ffffff;
---border-color: #e0e0e0;
---shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-    body {
-        font-family: 'Poppins', sans-serif;
-        background-color: var(--bg-color);
-        margin: 0;
-        padding: 20px;
-        color: var(--text-color);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jannat Hotel & Resort - Stock Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
 
-    .container {
-        max-width: 1200px;
-        margin: auto;
-    }
-    
-    .header {
-        text-align: center;
-        margin-bottom: 30px;
-    }
-
-    .header h1 {
-        color: var(--primary-dark);
-        font-size: 2.5rem;
-        font-weight: 700;
-    }
-
-    .card {
-        background: var(--card-bg);
-        border-radius: 12px;
-        box-shadow: var(--shadow);
-        padding: 25px 30px;
-        margin-bottom: 25px;
-    }
-
-    h2 {
-        text-align: center;
-        color: var(--primary-dark);
-        margin-top: 0;
-        margin-bottom: 25px;
-        font-weight: 600;
-    }
-
-    .form-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-
-    input, select {
-        width: 100%;
-        padding: 14px;
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        font-size: 16px;
-        box-sizing: border-box;
-        transition: border-color 0.3s, box-shadow 0.3s;
-    }
-
-    input:focus, select:focus {
-        outline: none;
-        border-color: var(--primary-color);
-        box-shadow: 0 0 0 3px rgba(0, 121, 107, 0.2);
-    }
-
-    button {
-        width: 100%;
-        padding: 15px;
-        background-image: linear-gradient(45deg, var(--primary-dark), var(--primary-color));
-        color: white;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        font-weight: 600;
-        font-size: 16px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        transition: transform 0.2s, box-shadow 0.3s;
-    }
-
-    button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 15px rgba(0, 121, 107, 0.3);
-    }
-    
-    .table-wrapper {
-        overflow-x: auto;
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        white-space: nowrap;
-    }
-
-    th, td {
-        padding: 16px;
-        text-align: left;
-        border-bottom: 1px solid var(--border-color);
-    }
-
-    th {
-        background-color: #e8f5e9;
-        color: var(--primary-dark);
-        font-weight: 600;
-    }
-
-    tbody tr:hover {
-        background-color: #f1f1f1;
-    }
-    
-    .action-buttons button {
-        width: auto;
-        padding: 8px 15px;
-        margin-right: 8px;
-        font-size: 14px;
-        text-transform: none;
-        letter-spacing: 0;
-    }
-
-    .btn-out {
-        background-image: linear-gradient(45deg, #c62828, #f44336);
-    }
-    .btn-out:hover {
-         box-shadow: 0 6px 15px rgba(244, 67, 54, 0.3);
-    }
-
-    @media (min-width: 768px) {
-        .form-grid {
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+    <style>
+        :root {
+            --primary-color: #00796b;
+            --primary-dark: #005a4a;
+            --accent-color: #ffc107;
+            --bg-color: #f4f6f8;
+            --text-color: #333;
+            --card-bg: #ffffff;
+            --border-color: #e0e0e0;
+            --danger-color: #d32f2f;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
-        .form-grid .full-width {
-            grid-column: 1 / -1;
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+            color: var(--text-color);
         }
-    }
-</style>
+
+        .container { max-width: 1200px; margin: auto; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .header h1 { color: var(--primary-dark); font-size: 2.5rem; font-weight: 700; }
+
+        .card {
+            background: var(--card-bg); border-radius: 12px;
+            box-shadow: var(--shadow); padding: 25px 30px; margin-bottom: 25px;
+        }
+
+        h2 {
+            text-align: center; color: var(--primary-dark);
+            margin-top: 0; margin-bottom: 25px; font-weight: 600;
+        }
+
+        .form-grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
+
+        input, select {
+            width: 100%; padding: 14px; border: 1px solid var(--border-color);
+            border-radius: 8px; font-size: 16px; box-sizing: border-box;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input:focus, select:focus {
+            outline: none; border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 121, 107, 0.2);
+        }
+
+        button {
+            width: 100%; padding: 15px;
+            background-image: linear-gradient(45deg, var(--primary-dark), var(--primary-color));
+            color: white; border: none; border-radius: 8px; cursor: pointer;
+            font-weight: 600; font-size: 16px; text-transform: uppercase;
+            letter-spacing: 0.5px; transition: transform 0.2s, box-shadow 0.3s;
+        }
+        button:hover {
+            transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0, 121, 107, 0.3);
+        }
+        
+        .table-wrapper { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; white-space: nowrap; }
+        th, td { padding: 16px; text-align: left; border-bottom: 1px solid var(--border-color); vertical-align: middle; }
+        th { background-color: #e8f5e9; color: var(--primary-dark); font-weight: 600; }
+        tbody tr:hover { background-color: #f1f1f1; }
+        
+        /* Action Buttons & Menu */
+        .actions-cell { position: relative; }
+        .action-btn-group button {
+            width: auto; padding: 8px 12px; margin-right: 8px;
+            font-size: 14px; text-transform: none; letter-spacing: 0;
+        }
+        .btn-in { background-image: linear-gradient(45deg, #0277bd, #29b6f6); }
+        .btn-in:hover { box-shadow: 0 6px 15px rgba(3, 169, 244, 0.3); }
+        .btn-out { background-image: linear-gradient(45deg, #c62828, #f44336); }
+        .btn-out:hover { box-shadow: 0 6px 15px rgba(244, 67, 54, 0.3); }
+
+        .menu-btn {
+            background: none; border: none; color: #555; cursor: pointer;
+            font-size: 20px; padding: 5px 10px; border-radius: 50%;
+        }
+        .menu-btn:hover { background-color: #e0e0e0; }
+
+        .dropdown-menu {
+            display: none; position: absolute; right: 0;
+            background-color: white; box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1; border-radius: 8px; overflow: hidden; min-width: 120px;
+        }
+        .dropdown-menu a {
+            color: black; padding: 12px 16px; text-decoration: none;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .dropdown-menu a:hover { background-color: #f1f1f1; }
+        .dropdown-menu a .fa-solid { color: var(--primary-color); }
+        .dropdown-menu a .fa-trash { color: var(--danger-color); }
+        .show { display: block; }
+
+        /* Modal Styles */
+        .modal {
+            display: none; position: fixed; z-index: 1000; left: 0; top: 0;
+            width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5);
+            animation: fadeIn 0.3s; align-items: center; justify-content: center;
+        }
+        .modal-content {
+            background-color: #fefefe; margin: auto; padding: 30px;
+            border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            max-width: 500px; width: 90%; animation: slideIn 0.4s;
+        }
+        .modal-header { padding-bottom: 15px; border-bottom: 1px solid #ddd; }
+        .modal-header h3 { margin: 0; font-weight: 600; }
+        .modal-body { padding: 20px 0; }
+        .modal-footer { text-align: right; }
+        .modal-footer button { width: auto; margin-left: 10px; }
+        #cancelBtn { background-image: linear-gradient(45deg, #616161, #9e9e9e); }
+        #cancelBtn:hover { box-shadow: 0 6px 15px rgba(158, 158, 158, 0.3); }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideIn { from { transform: translateY(-30px) scale(0.95); opacity: 0; } to { transform: translateY(0) scale(1); opacity: 1; } }
+
+        @media (min-width: 768px) {
+            .form-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+            .form-grid-modal { grid-template-columns: 1fr 1fr; gap: 20px; }
+            .form-grid .full-width, .form-grid-modal .full-width { grid-column: 1 / -1; }
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-    <header class="header">
-        <h1>জান্নাত হোটেল</h1>
-        <p>প্রিমিয়াম স্টক ম্যানেজমেন্ট সিস্টেম</p>
-    </header>
 
-    <div class="card">
-        <h2>নতুন স্টক আইটেম যোগ করুন</h2>
-        <form id="add-item-form">
-            <div class="form-grid">
-                <input type="text" id="item-name" placeholder="আইটেমের নাম" required>
-                <input type="number" id="item-price" placeholder="একক মূল্য (৳)" required min="0" step="any">
-                <select id="item-location" required>
-                    <option value="" disabled selected>অবস্থান নির্বাচন করুন</option>
-                    <option value="প্রধান স্টোর">প্রধান স্টোর</option>
-                    <option value="রান্নাঘর">রান্নাঘর</option>
-                    <option value="বার">বার</option>
-                    <option value="হাউসকিপিং স্টোর">হাউসকিপিং স্টোর</option>
-                </select>
-                <select id="item-category" required>
-                    <option value="" disabled selected>ক্যাটাগরি</option>
-                    <option value="খাদ্য ও পানীয়">খাদ্য ও পানীয়</option>
-                    <option value="হাউসকিপিং">হাউসকিপিং</option>
-                    <option value="অন্যান্য">অন্যান্য</option>
-                </select>
-                <input type="number" id="item-stock" placeholder="বর্তমান স্টক" required min="0">
-                <input type="text" id="item-unit" placeholder="একক (যেমন: কেজি, পিস, লিটার)" required>
-                <button type="submit" class="full-width">স্টকে যোগ করুন</button>
+    <div class="container">
+        <header class="header">
+            <h1>Jannat Hotel & Resort</h1>
+            <p>Stock Management System</p>
+        </header>
+
+        <div class="card">
+            <h2>Add New Stock Item</h2>
+            <form id="add-item-form">
+                <div class="form-grid">
+                    <input type="text" id="item-name" placeholder="Item Name" required>
+                    <input type="number" id="item-price" placeholder="Initial Purchase Price" required min="0" step="any">
+                    <select id="item-location" required>
+                        <option value="" disabled selected>Location</option>
+                        <option value="Main Store">Main Store</option>
+                        <option value="Kitchen">Kitchen</option>
+                        <option value="Bar">Bar</option>
+                        <option value="Housekeeping Store">Housekeeping Store</option>
+                    </select>
+                    <select id="item-category" required>
+                        <option value="" disabled selected>Category</option>
+                        <option value="Food & Beverage">Food & Beverage</option>
+                        <option value="Housekeeping">Housekeeping</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <input type="number" id="item-stock" placeholder="Initial Stock" required min="0">
+                    <input type="text" id="item-unit" placeholder="Unit (e.g., kg, pcs, litre)" required>
+                    <button type="submit" class="full-width">Add to Stock</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Inventory List</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Location</th>
+                            <th>Category</th>
+                            <th>Avg. Price (WAC)</th>
+                            <th>Current Stock</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inventory-list"></tbody>
+                </table>
             </div>
-        </form>
-    </div>
-
-    <div class="card">
-        <h2>ইনভেন্টরি তালিকা</h2>
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th>নাম</th>
-                        <th>অবস্থান</th>
-                        <th>ক্যাটাগরি</th>
-                        <th>একক মূল্য</th>
-                        <th>বর্তমান স্টক</th>
-                        <th>অ্যাকশন</th>
-                    </tr>
-                </thead>
-                <tbody id="inventory-list"></tbody>
-            </table>
         </div>
     </div>
-</div>
 
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-
-<script>
-    const firebaseConfig = {
-        apiKey: "AIzaSyAgXc6yhbA_ADwOqNNAA8AERgyuQsuU798",
-        authDomain: "jannat-434d5.firebaseapp.com",
-        projectId: "jannat-434d5",
-        storageBucket: "jannat-434d5.firebasestorage.app",
-        messagingSenderId: "439944147100",
-        appId: "1:439944147100:web:ecbd0169a9099f23747d59",
-        measurementId: "G-ZPK0F4M0KP"
-    };
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
-    const inventoryCollection = db.collection('inventoryItems');
-
-    inventoryCollection.orderBy("location").onSnapshot(snapshot => {
-        const inventoryList = document.getElementById('inventory-list');
-        inventoryList.innerHTML = '';
-        snapshot.forEach(doc => {
-            const item = doc.data();
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${item.name}</td>
-                <td>${item.location}</td>
-                <td>${item.category}</td>
-                <td>৳${Number(item.price).toFixed(2)}</td>
-                <td>${item.currentStock} ${item.unit}</td>
-                <td class="action-buttons">
-                    <button onclick="updateStock('${doc.id}', true)">In</button>
-                    <button class="btn-out" onclick="updateStock('${doc.id}', false)">Out</button>
-                </td>
-            `;
-            inventoryList.appendChild(row);
-        });
-    }, error => {
-        console.error("Firestore Error:", error);
-        alert("ডেটাবেস থেকে ডেটা লোড করা যাচ্ছে না। আপনার Security Rules চেক করুন।");
-    });
+    <!-- Universal Modal -->
+    <div id="universalModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle"></h3>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Dynamic content will be injected here -->
+            </div>
+            <div class="modal-footer">
+                <button id="cancelBtn">Cancel</button>
+                <button id="saveBtn">Save</button>
+            </div>
+        </div>
+    </div>
     
-    document.getElementById('add-item-form').addEventListener('submit', (e) => {
-        e.preventDefault();
-        inventoryCollection.add({
-            name: document.getElementById('item-name').value,
-            price: Number(document.getElementById('item-price').value),
-            location: document.getElementById('item-location').value,
-            category: document.getElementById('item-category').value,
-            unit: document.getElementById('item-unit').value,
-            currentStock: Number(document.getElementById('item-stock').value),
-            createdAt: firebase.firestore.FieldValue.serverTimestamp()
-        });
-        e.target.reset();
-    });
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyAgXc6yhbA_ADwOqNNAA8AERgyuQsuU798",
+            authDomain: "jannat-434d5.firebaseapp.com",
+            projectId: "jannat-434d5",
+            storageBucket: "jannat-434d5.firebasestorage.app",
+            messagingSenderId: "439944147100",
+            appId: "1:439944147100:web:ecbd0169a9099f23747d59",
+            measurementId: "G-ZPK0F4M0KP"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        const inventoryCollection = db.collection('inventoryItems');
 
-    window.updateStock = (id, isStockIn) => {
-        const promptMessage = isStockIn ? "কত পরিমাণ যোগ করবেন?" : "কত পরিমাণ ইস্যু করবেন?";
-        const quantityInput = prompt(promptMessage);
-        
-        if (quantityInput === null) return;
+        const universalModal = document.getElementById('universalModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalBody = document.getElementById('modalBody');
+        const saveBtn = document.getElementById('saveBtn');
+        const cancelBtn = document.getElementById('cancelBtn');
+        let currentItemId = null;
+        let currentOperation = null;
 
-        const quantity = Number(quantityInput);
-        if (!isNaN(quantity) && quantity > 0) {
-            const itemRef = db.collection('inventoryItems').doc(id);
-            itemRef.get().then(doc => {
-                if (doc.exists) {
-                    const currentStock = doc.data().currentStock;
-                    if (!isStockIn && quantity > currentStock) {
-                        alert("দুঃখিত, স্টকে পর্যাপ্ত পরিমাণ পণ্য নেই।");
-                        return;
-                    }
-                    itemRef.update({
-                        currentStock: firebase.firestore.FieldValue.increment(isStockIn ? quantity : -quantity)
-                    });
-                }
+        // Render Inventory List
+        inventoryCollection.orderBy("location").onSnapshot(snapshot => {
+            const inventoryList = document.getElementById('inventory-list');
+            inventoryList.innerHTML = '';
+            snapshot.forEach(doc => {
+                const item = doc.data();
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>${item.location}</td>
+                    <td>${item.category}</td>
+                    <td>${Number(item.price).toFixed(2)}</td>
+                    <td>${item.currentStock} ${item.unit}</td>
+                    <td class="actions-cell">
+                        <div class="action-btn-group">
+                             <button class="btn-in" onclick="openModal('stock-in', '${doc.id}', '${item.name}')">In</button>
+                             <button class="btn-out" onclick="openModal('stock-out', '${doc.id}', '${item.name}')">Out</button>
+                        </div>
+                        <button class="menu-btn" onclick="toggleMenu(event, '${doc.id}')"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div id="menu-${doc.id}" class="dropdown-menu">
+                            <a href="#" onclick="openModal('edit', '${doc.id}')"><i class="fa-solid fa-pencil"></i> Edit</a>
+                            <a href="#" onclick="deleteItem('${doc.id}', '${item.name}')"><i class="fa-solid fa-trash"></i> Delete</a>
+                        </div>
+                    </td>
+                `;
+                inventoryList.appendChild(row);
             });
-        } else if (quantityInput !== '') {
-            alert("দয়া করে সঠিক সংখ্যা ইনপুট দিন।");
-        }
-    };
-</script>
+        }, error => console.error("Firestore Error:", error));
+
+        // Add New Item
+        document.getElementById('add-item-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            inventoryCollection.add({
+                name: document.getElementById('item-name').value,
+                price: Number(document.getElementById('item-price').value),
+                location: document.getElementById('item-location').value,
+                category: document.getElementById('item-category').value,
+                unit: document.getElementById('item-unit').value,
+                currentStock: Number(document.getElementById('item-stock').value),
+                createdAt: firebase.firestore.FieldValue.serverTimestamp()
+            }).then(() => e.target.reset());
+        });
+        
+        // --- MODAL CONTROLS ---
+        const openModal = async (operation, id, name = '') => {
+            currentItemId = id;
+            currentOperation = operation;
+            universalModal.style.display = 'flex';
+
+            if (operation === 'stock-in') {
+                modalTitle.textContent = `Add Stock for "${name}"`;
+                modalBody.innerHTML = `
+                    <div class="form-grid-modal">
+                        <input type="number" id="modalQuantity" placeholder="New Quantity" required min="1">
+                        <input type="number" id="modalPrice" placeholder="New Purchase Price (per unit)" required min="0" step="any">
+                    </div>
+                `;
+            } else if (operation === 'stock-out') {
+                modalTitle.textContent = `Issue Stock from "${name}"`;
+                modalBody.innerHTML = `
+                     <input type="number" id="modalQuantity" placeholder="Issue Quantity" required min="1">
+                `;
+            } else if (operation === 'edit') {
+                 const doc = await inventoryCollection.doc(id).get();
+                 const item = doc.data();
+                 modalTitle.textContent = `Edit "${item.name}"`;
+                 modalBody.innerHTML = `
+                    <div class="form-grid-modal">
+                        <input type="text" id="editName" value="${item.name}" placeholder="Item Name" required>
+                        <input type="text" id="editUnit" value="${item.unit}" placeholder="Unit" required>
+                        <select id="editLocation" required>
+                            <option value="Main Store" ${item.location === 'Main Store' ? 'selected' : ''}>Main Store</option>
+                            <option value="Kitchen" ${item.location === 'Kitchen' ? 'selected' : ''}>Kitchen</option>
+                            <option value="Bar" ${item.location === 'Bar' ? 'selected' : ''}>Bar</option>
+                            <option value="Housekeeping Store" ${item.location === 'Housekeeping Store' ? 'selected' : ''}>Housekeeping Store</option>
+                        </select>
+                        <select id="editCategory" required>
+                            <option value="Food & Beverage" ${item.category === 'Food & Beverage' ? 'selected' : ''}>Food & Beverage</option>
+                            <option value="Housekeeping" ${item.category === 'Housekeeping' ? 'selected' : ''}>Housekeeping</option>
+                            <option value="Other" ${item.category === 'Other' ? 'selected' : ''}>Other</option>
+                        </select>
+                    </div>
+                 `;
+            }
+        };
+
+        const closeModal = () => {
+            universalModal.style.display = 'none';
+            currentItemId = null;
+            currentOperation = null;
+        };
+
+        cancelBtn.onclick = closeModal;
+        window.onclick = (event) => {
+            if (event.target == universalModal) closeModal();
+            if (!event.target.matches('.menu-btn, .menu-btn i')) {
+                document.querySelectorAll('.dropdown-menu.show').forEach(menu => menu.classList.remove('show'));
+            }
+        };
+        
+        // --- CRUD OPERATIONS ---
+        saveBtn.onclick = async () => {
+            const itemRef = db.collection('inventoryItems').doc(currentItemId);
+            
+            try {
+                if (currentOperation === 'stock-in') {
+                    const newQuantity = Number(document.getElementById('modalQuantity').value);
+                    const newPrice = Number(document.getElementById('modalPrice').value);
+                    if (!newQuantity || newQuantity <= 0 || newPrice < 0) {
+                        alert("Please enter a valid quantity and price."); return;
+                    }
+                    await db.runTransaction(async t => {
+                        const doc = await t.get(itemRef);
+                        if (!doc.exists) throw "Item not found!";
+                        const { currentStock, price } = doc.data();
+                        const newTotalStock = currentStock + newQuantity;
+                        const newAveragePrice = ((currentStock * price) + (newQuantity * newPrice)) / newTotalStock;
+                        t.update(itemRef, { currentStock: newTotalStock, price: newAveragePrice });
+                    });
+                } else if (currentOperation === 'stock-out') {
+                    const quantity = Number(document.getElementById('modalQuantity').value);
+                    if (!quantity || quantity <= 0) {
+                        alert("Please enter a valid quantity."); return;
+                    }
+                    await db.runTransaction(async t => {
+                        const doc = await t.get(itemRef);
+                        if (!doc.exists) throw "Item not found!";
+                        if (doc.data().currentStock < quantity) throw "Insufficient stock!";
+                        t.update(itemRef, { currentStock: firebase.firestore.FieldValue.increment(-quantity) });
+                    });
+                } else if (currentOperation === 'edit') {
+                    const updatedData = {
+                        name: document.getElementById('editName').value,
+                        unit: document.getElementById('editUnit').value,
+                        location: document.getElementById('editLocation').value,
+                        category: document.getElementById('editCategory').value,
+                    };
+                    await itemRef.update(updatedData);
+                }
+                closeModal();
+            } catch (error) {
+                alert("Operation failed: " + error);
+            }
+        };
+
+        const deleteItem = (id, name) => {
+            if (confirm(`Are you sure you want to permanently delete "${name}"?`)) {
+                inventoryCollection.doc(id).delete()
+                    .then(() => alert("Item deleted successfully."))
+                    .catch(err => alert("Error: " + err.message));
+            }
+        };
+
+        window.toggleMenu = (event, id) => {
+            event.stopPropagation();
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                if(menu.id !== `menu-${id}`) menu.classList.remove('show');
+            });
+            document.getElementById(`menu-${id}`).classList.toggle('show');
+        };
+    </script>
 </body>
 </html>
